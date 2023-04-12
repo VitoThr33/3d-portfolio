@@ -7,6 +7,6 @@ export default [
     {
         name:"screen",
         type: "videoTexture",
-        path: "/textures/Nobi.mp4",  
+        path: "/textures/Nobi2.mp4",  
     }
 ]

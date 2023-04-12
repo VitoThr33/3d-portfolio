@@ -1,9 +1,11 @@
 import * as THREE from "three";
-
 import { EventEmitter } from "events";
+import Experience from "../Experience.js";
+
+
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
-import Experience from "../Experience.js";
+
 
 export default class Resources extends EventEmitter {
     constructor(assets) {
@@ -63,9 +65,9 @@ export default class Resources extends EventEmitter {
     singleAssetLoaded(asset, file) {
         this.items[asset.name] = file;
         this.loaded++;
-
+console.log("asset is loading")
         if (this.loaded === this.queue) {
-
+console.log("all assets done")
             this.emit("ready");
         }
     }
