@@ -17,8 +17,7 @@ export default class World {
             this.room = new Room();
         });
 
-        this.room = new Room();
-        console.log("Room created")
+       
     }
 
     resize(){
