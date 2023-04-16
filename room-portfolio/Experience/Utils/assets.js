@@ -1,12 +1,13 @@
 export default [
     {
-        name:"room",
+
+        name: "room",
         type: "glbModel",
-        path: "/models/completedRoom.glb",
+        path: "/models/fv16.glb",
     },
     {
-        name:"screen",
+        name: "screen",
         type: "videoTexture",
-        path: "/textures/Nobi2.mp4",  
-    }
+        path: "/textures/javatricks.mp4"
+    },
 ]
