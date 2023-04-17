@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import Experience from "../Experience.js";
 
+
 export default class Room {
     constructor (){
         this.experience = new Experience();
@@ -27,15 +28,19 @@ export default class Room {
         })
 
         this.scene.add(this.actualRoom);
+
         this.actualRoom.scale.set(0.11,0.11,0.11);
         
     }
 
-    resize(){
 
     }
 
-    update(){
-
+    setModel() {
+        
     }
+
+    resize(){}
+
+    update(){}
 }
