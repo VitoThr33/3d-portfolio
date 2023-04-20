@@ -24,6 +24,18 @@ export default class Room {
                     groupchild.receiveShadow = true;
                 });
             }
+            if (child.name === "Screen"){
+                child.material = new THREE.MeshBasicMaterial({
+                    map: this.resources.items.screen,
+                })
+            }
+            if (child.name === "TV"){
+                child.material = new THREE.MeshBasicMaterial({
+                    map: this.resources.items.TV,
+                    
+                })
+            }
+
         })
 
         this.scene.add(this.actualRoom);
