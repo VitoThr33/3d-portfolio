@@ -76,7 +76,7 @@ html,body{
 }
 
 .section-heading{
-  font-size: 18px;
+  font-size: 26px;
   font-weight: 700;
   line-height: 1.8;
   margin-top: 64px;
@@ -85,9 +85,58 @@ html,body{
 .section-text{
   line-height: 2;
   margin-top: 18px;
-  font-size: 16px;
+  font-size: 20px;
+}
+/*Decoration part of section=======================================================*/
+.section-title{
+  position: relative;
+  color: var(--primary-pink)
 }
 
+.section-title-text{
+  display: block;
+  font-size: 80px;
+  font-weight: 500;
+  transform-origin: left;
+  transform:skewY(25deg);
+  z-index:5;
+  text-transform: uppercase;
+}
+
+.styleOne,
+.styleTwo,
+.styleThree{
+  position: absolute;
+  display:block;
+  width:100%;
+  max-width: 278px;
+  height: 60px;
+  border: 1px solid var(--primary-pink);
+  transform:skewY(-25deg);
+  transform-origin: left;
+}
+
+.styleOne{
+  top: 0px;
+}
+
+.styleTwo{
+  top: 80px;
+}
+
+.styleThree{
+  top: 80px;
+  transform: skewY(25deg);
+  background-color: var(--primary-pink) ;
+  font-size: 20px;
+}
+
+.section-number{
+  position: absolute;
+  bottom: 15px;
+  right: 0;
+  color: var(--primary-pink);
+}
 /*Hero=============================================================================*/
 .hero{
   width: 100vw;
