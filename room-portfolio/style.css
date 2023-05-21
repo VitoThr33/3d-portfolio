@@ -11,13 +11,46 @@ html,body{
   color: var(--text-black);
 }
 
+h1,
+section,
+p,
+span,
+svg{
+  transition: background-color 0.7s, color 0.7s;
+}
+
+
 :root{
-  --text-black: rgb(15, 15, 15);
-  --primary-color: rgb(172, 170, 170);
-  --primary-pink: #e5a1aa;
+  /* Light Theme Variables */
+  --color-text-light: #333332;
+  --color-background-light: #d8c595;
+  --color-pink-light: #b92f0c;
+  --color-green-light: #0c422c;
+  --color-blue-light: #102769;
+
+  /* Dark Theme Variables */
+  --color-text-dark: #FAF4E5;
+  --color-background-dark: #0d1f55;
+}
+
+.light-theme{
+  --color-text: var(--color-text-light);
+  --color-background: var(--color-background-light);
+  --color-pink: var(--color-pink-light);
+  --color-green: var(--color-green-light);
+  --color-blue: var(--color-blue-light);
+}
+
+.dark-theme{
+  --color-text: var(--color-text-dark);
+  --color-background: var(--color-background-dark);
+  --color-pink: var(--color-text-dark);
+  --color-green: var(--color-text-dark);
+  --color-blue: var(--color-text-dark);
 }
 
 /*EXPERIENCE=======================================================================*/
+
 .experience{
   position: fixed;
   width: 100vw;
@@ -41,9 +74,61 @@ html,body{
   position: relative;
 }
 
+/*Toggle Bar=============================================================================*/
+.toggle-bar{
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 48px;
+  right: 48px;
+  z-index: 999999999999;
+}
+
+.sun-wrapper, 
+.moon-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-button{
+  cursor: pointer;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-pink);
+  border-radius: 999px;
+  margin: 0px 16px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.toggle-circle{
+  position: absolute;
+  left: 6px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-background);
+  transition: all 0.2s ease-in-out;
+}
+
+.toggle-button:hover .toggle-circle{
+  transform: scale(0.9);
+}
+
+.slide{
+  left: 35px;
+}
 /*SECTION FORMATTING=============================================================================*/
 .section-margin{
-  height: 3000px;
+  height: 500px;
   width: 100%;
 }
 
@@ -51,22 +136,26 @@ html,body{
   width:43%;
   padding: 1000px 4%;
   margin: 0;
-  background-color: var(--primary-color);
+  background-color: var(--color-background);
   overflow: hidden;
 }
 
 .left{
   margin-right: auto;
+  border-top-right-radius: 70px 70px;
+  border-bottom-right-radius: 70px 70px;
 }
 
 .right{
   margin-left:auto;
+  border-top-left-radius: 70px 70px;
+  border-bottom-left-radius: 70px 70px;
 }
 
 .section-intro-wrapper{
   position: relative;
   padding: 20% 5%;
-  border-bottom: 2px solid var(--primary-pink);
+  border-bottom: 2px solid var(--color-pink);
   padding-bottom: 400px;
 }
 
@@ -80,17 +169,19 @@ html,body{
   font-weight: 700;
   line-height: 1.8;
   margin-top: 64px;
+  color: var(--color-text);
 }
 
 .section-text{
   line-height: 2;
   margin-top: 18px;
   font-size: 20px;
+  color: var(--color-text);
 }
 /*Decoration part of section=======================================================*/
 .section-title{
   position: relative;
-  color: var(--primary-pink)
+  color: var(--color-pink)
 }
 
 .section-title-text{
@@ -101,6 +192,7 @@ html,body{
   transform:skewY(25deg);
   z-index:5;
   text-transform: uppercase;
+  color: var(--color-pink);
 }
 
 .styleOne,
@@ -111,7 +203,7 @@ html,body{
   width:100%;
   max-width: 278px;
   height: 60px;
-  border: 1px solid var(--primary-pink);
+  border: 1px solid var(--color-pink);
   transform:skewY(-25deg);
   transform-origin: left;
 }
@@ -127,7 +219,7 @@ html,body{
 .styleThree{
   top: 80px;
   transform: skewY(25deg);
-  background-color: var(--primary-pink) ;
+  background-color: var(--color-pink) ;
   font-size: 20px;
 }
 
@@ -135,7 +227,7 @@ html,body{
   position: absolute;
   bottom: 15px;
   right: 0;
-  color: var(--primary-pink);
+  color: var(--color-pink);
 }
 /*Hero=============================================================================*/
 .hero{
@@ -155,6 +247,7 @@ html,body{
   position: absolute;
   bottom: 145px;
   left: 0;
+  color: var(--color-text);
  
 }
 
@@ -162,19 +255,54 @@ html,body{
   position: absolute;
   top: calc(50% - 120px);
   right: 0;
+  color: var(--color-text);
 }
 
 .hero-main-title{
   font-size: 64px;
+  color: var(--color-text);
 }
 
 .hero-main-description{
   font-size: 20px;
+  color: var(--color-text);
 }
 
 .hero-second-subheading{
   font-size: 34px;
   text-transform: uppercase;
+  color: var(--color-text);
 }
 
+/*COLOR OVERRIDES=======================================================================*/
 
+.blue-text{
+  color: var(--color-blue)
+}
+
+.blue-border{
+  border-color: var(--color-blue);
+}
+
+.blue-background{
+  background-color: var(--color-blue);
+}
+
+.green-text{
+  color: var(--color-green)
+}
+
+.green-border{
+  border-color: var(--color-green);
+}
+
+.green-background{
+  background-color: var(--color-green);
+}
+
+/*MEDIA QUERIES======================================================*/
+@media(max-width:968px){
+  .section{
+    width:100%;
+  }
+}
