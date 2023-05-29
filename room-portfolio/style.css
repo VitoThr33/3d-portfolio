@@ -9,6 +9,7 @@
 html,body{
   font-family: "Teko",sans-serif;
   color: var(--text-black);
+  
 }
 
 h1,
@@ -128,7 +129,7 @@ svg{
 }
 /*SECTION FORMATTING=============================================================================*/
 .section-margin{
-  height: 500px;
+  height: 1000px;
   width: 100%;
 }
 

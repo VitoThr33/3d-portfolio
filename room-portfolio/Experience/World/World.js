@@ -39,10 +39,10 @@ export default class World {
     }
 
     update(){
-        if(this.room){
+        if (this.room) {
             this.room.update();
         }
-        if(this.controls){
+        if (this.controls) {
             this.controls.update();
         }
     }

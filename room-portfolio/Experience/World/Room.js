@@ -32,7 +32,9 @@ export default class Room {
                     groupchild.receiveShadow = true;
                 });
             }
-            if (child.name === "Screen"){
+            console.log(child);
+            
+            if (child.name === "screen"){
                 child.material = new THREE.MeshBasicMaterial({
                     map: this.resources.items.screen,
                 })
@@ -47,7 +49,7 @@ export default class Room {
         })
 
         this.scene.add(this.actualRoom);
-        this.actualRoom.scale.set(0.11,0.11,0.11);
+        this.actualRoom.scale.set(0.065,0.065,0.065);
         
     }
 
