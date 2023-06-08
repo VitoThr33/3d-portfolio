@@ -45,7 +45,13 @@ export default class Room {
                     
                 })
             }
-
+            if (child.name === "miniFloor"){
+                child.position.x = -0.219974 ;
+                child.position.z = 13.6171;
+            }
+            if (child.name === "mailbox" || child.name === "flowers"){
+                child.scale.set(0,0,0)
+            }
         })
 
         this.scene.add(this.actualRoom);
