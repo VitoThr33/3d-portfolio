@@ -5,11 +5,13 @@ import Time from "./Utils/Time.js";
 import Resources from "./Utils/Resources.js";
 import assets from "./Utils/assets.js";
 
+
 import Camera from "./Camera.js";
 import Theme from "./Theme.js";
 import Renderer from "./Renderer.js";
 
 import World from "./World/World.js";
+import Room from "./World/Room.js";
 import Room from "./World/Room.js";
 
 
