@@ -1,12 +1,18 @@
 export default [
     {
-        name:"room",
+        name: "room",
         type: "glbModel",
-        path: "/models/completedRoom.glb",
+        path: "/models/NewFinal2.glb",
     },
     {
-        name:"screen",
+        name: "screen",
         type: "videoTexture",
-        path: "/textures/Nobi2.mp4",  
+        path: "/textures/nobi.mp4"
+    },
+
+    {
+        name: "TV",
+        type: "videoTexture",
+        path: "/textures/nobi.mp4"
     }
 ]
