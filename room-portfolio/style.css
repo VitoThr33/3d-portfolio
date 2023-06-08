@@ -144,13 +144,13 @@ svg{
 
 .left{
   margin-right: auto;
-  border-top-right-radius: 300px 300px;
+  border-top-right-radius: 800px 800px;
   border-bottom-right-radius: 300px 300px;
 }
 
 .right{
   margin-left:auto;
-  border-top-left-radius: 300px 300px;
+  border-top-left-radius: 800px 800px;
   border-bottom-left-radius: 300px 300px;
 }
 
@@ -162,7 +162,7 @@ svg{
 }
 
 .progress-bar-wrapper-left{
-  position:absolute;
+  position: absolute;
   top: 0;
   left: 0;
 }
