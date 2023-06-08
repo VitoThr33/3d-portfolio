@@ -16,4 +16,3 @@ export default [
         path: "/textures/nobi.mp4"
     }
 ]
-
