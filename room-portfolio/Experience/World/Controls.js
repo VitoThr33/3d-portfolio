@@ -7,12 +7,15 @@ import ASScroll from "@ashthornton/asscroll";
 export default class Controls {
   constructor() {
     this.experience = new Experience();
-    this.sizes = this.experience.scene;
+    this.scene = this.experience.scene;
     this.sizes = this.experience.sizes;
     this.resources = this.experience.resources;
     this.time = this.experience.time;
     this.camera = this.experience.camera;
     this.room = this.experience.world.room.actualRoom;
+    this.circleFirst = this.experience.world.floor.circleFirst;
+    this.circleSecond = this.experience.world.floor.circleSecond;
+    this.circleThird = this.experience.world.floor.circleThird;
     GSAP.registerPlugin(ScrollTrigger);
 
     this.setSmoothScroll();
@@ -269,6 +272,65 @@ export default class Controls {
             }
           })
         });
+        
+        //CIRCLE ANIMATION------------------------------------------------------------------------->
+
+
+        //FIRST SECTION  -------------------------------------------------------------------------->
+
+        this.firstCircle = new GSAP.timeline({
+          scrollTrigger: {
+              trigger: ".first-move",
+              start: "top top",
+              end: "bottom bottom",
+              scrub: 13,
+          },
+      }).to(this.circleFirst.scale, {
+          x: 3,
+          y: 3,
+          z: 3,
+      });
+
+      // Second section -----------------------------------------
+      this.secondCircle = new GSAP.timeline({
+          scrollTrigger: {
+              trigger: ".second-move",
+              start: "top top",
+              end: "bottom bottom",
+              scrub: 3,
+          },
+      })
+          .to(
+              this.circleSecond.scale,
+              {
+                  x: 3,
+                  y: 3,
+                  z: 3,
+              },
+              "uno"
+          )
+          .to(
+              this.room.position,
+              {
+                  y: 0.7,
+              },
+              "uno"
+          );
+
+      // Third section -----------------------------------------
+      this.thirdCircle = new GSAP.timeline({
+          scrollTrigger: {
+              trigger: ".third-move",
+              start: "top top",
+              end: "bottom bottom",
+              scrub: 2,
+          },
+      }).to(this.circleThird.scale, {
+          x: 3,
+          y: 3,
+          z: 3,
+      });
+
         //MINI PLATFORM ANIMATIONS -------------------------------------------------------------->
         console.log()
         this.secondPartTimeline = new GSAP.timeline({
