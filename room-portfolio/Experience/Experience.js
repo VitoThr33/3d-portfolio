@@ -8,6 +8,7 @@ import assets from "./Utils/assets.js";
 import Camera from "./Camera.js";
 import Theme from "./Theme.js";
 import Renderer from "./Renderer.js";
+import Preloader from "./Preloader.js";
 
 import World from "./World/World.js";
 import Room from "./World/Room.js";
@@ -30,6 +31,7 @@ export default class Experience {
         this.resources = new Resources(assets);
         this.theme = new Theme();
         this.world= new World();
+        this.preloader= new Preloader();
         
         this.sizes.on("resize", ()=>{
             this.resize();

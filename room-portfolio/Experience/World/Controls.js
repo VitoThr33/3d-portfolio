@@ -69,7 +69,7 @@ export default class Controls {
     ScrollTrigger.matchMedia({
       //Desktop
       "(min-width: 969px)": () => {
-        console.log("fired desktop");
+        //console.log("fired desktop");
         this.room.scale.set(0.065, 0.065, 0.065);
         //FIRST SECTION  -------------------------------------------------------------------------->
 
@@ -137,7 +137,7 @@ export default class Controls {
       },
       //Mobile
       "(max-width: 968px)": () => {
-        console.log("fired mobile");
+       // console.log("fired mobile");
 
         //RESETS
         this.room.scale.set(0.05, 0.05, 0.05);

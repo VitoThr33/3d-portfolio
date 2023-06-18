@@ -9,6 +9,7 @@ export default class Room {
         this.resources = this.experience.resources;
         this.room = this.resources.items.room;
         this.actualRoom = this.room.scene;
+        this.roomChildren = {};
 
         this.lerp = {
             current: 0,
@@ -32,7 +33,7 @@ export default class Room {
                     groupchild.receiveShadow = true;
                 });
             }
-            console.log(child);
+            //console.log(child);
             
             if (child.name === "screen"){
                 child.material = new THREE.MeshBasicMaterial({
@@ -49,10 +50,17 @@ export default class Room {
                 child.position.x = -0.219974 ;
                 child.position.z = 13.6171;
             }
-            if (child.name === "mailbox" || child.name === "flowers"){
+            /*if (child.name === "mailbox" || child.name === "flowers"){
                 child.scale.set(0,0,0)
+            }*/
+            child.scale.set(0,0,0);
+            if (child.name === "Cube"){
+            //child.scale.set(1,1,1);
+            child.position.set(0,-1.5,0);
+            child.rotation.y = Math.PI / 4;
             }
-        })
+            this.roomChildren[child.name.toLowerCase()] = child;
+        });
 
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.065,0.065,0.065);
