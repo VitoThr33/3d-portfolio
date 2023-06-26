@@ -38,6 +38,14 @@ export default class Preloader extends EventEmitter {
   firstIntro() {
     return new Promise((resolve) => {
       this.timeline = new GSAP.timeline();
+      this.timeline
+          .to(".preloader", {
+            opacity: 0,
+            delay:0.6,
+            onComplete: () => {
+              document.querySelector(".preloader").classList.add("hidden");
+            }
+          })
 
       if (this.device === "desktop") {
         this.timeline
@@ -242,9 +250,9 @@ export default class Preloader extends EventEmitter {
           duration: 1,
         })
         .to(".arrow-svg-wrapper", {
-          opacity: 0,
+          opacity: 1,
           onComplete: resolve,
-        },"out")
+        });
     });
   }
 
