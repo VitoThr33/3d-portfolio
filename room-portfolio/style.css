@@ -75,6 +75,40 @@ svg{
   position: relative;
 }
 
+/*Preloader=============================================================================*/
+.animatedis{
+  display: inline-block;
+  transform: translateY(100%);
+}
+
+.intro-text{
+  position: absolute;
+  top: 62.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.arrow-svg-wrapper{
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: bounce 0.5s ease-in alternate infinite;
+  opacity: 0;
+}
+
+@keyframes bounce {
+  0%{
+    transform: translateY(0)
+  }
+
+  100%{
+    transform: translateY(8px)
+  }
+}
+
 /*Toggle Bar=============================================================================*/
 .toggle-bar{
   position: fixed;
@@ -85,6 +119,7 @@ svg{
   top: 48px;
   right: 48px;
   z-index: 999999999999;
+  opacity: 0;
 }
 
 .sun-wrapper, 
