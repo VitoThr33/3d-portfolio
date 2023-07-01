@@ -1,7 +1,7 @@
 import { EventEmitter } from "events";
-import Experience from "./Experience";
+import Experience from "./Experience.js";
 import GSAP from "gsap";
-import convert from "./Utils/ConvertDivsToSpans";
+import convert from "./Utils/convertDivsToSpans.js";
 
 export default class Preloader extends EventEmitter {
   constructor() {
@@ -30,6 +30,7 @@ export default class Preloader extends EventEmitter {
     convert(document.querySelector(".hero-main-description"));
     convert(document.querySelector(".hero-second-subheading"));
     convert(document.querySelector(".second-sub"));
+
     this.room = this.experience.world.room.actualRoom;
     this.roomChildren = this.experience.world.room.roomChildren;
     console.log(this.roomChildren);
@@ -38,14 +39,14 @@ export default class Preloader extends EventEmitter {
   firstIntro() {
     return new Promise((resolve) => {
       this.timeline = new GSAP.timeline();
-      this.timeline
-          .to(".preloader", {
-            opacity: 0,
-            delay:0.6,
-            onComplete: () => {
-              document.querySelector(".preloader").classList.add("hidden");
-            }
-          })
+      this.timeline.set(".animatedis", { y: 0, yPercent: 100 });
+      this.timeline.to(".preloader", {
+        opacity: 0,
+        delay: 0.6,
+        onComplete: () => {
+          document.querySelector(".preloader").classList.add("hidden");
+        },
+      });
 
       if (this.device === "desktop") {
         this.timeline
@@ -76,16 +77,27 @@ export default class Preloader extends EventEmitter {
             duration: 0.7,
           });
       }
-      this.timeline.to(".intro-text .animatedis", {
-        yPercent: -100,
-        stagger: 0.05,
-        ease: "back.out(1.7)",
-      }).to(".arrow-svg-wrapper", {
-        opacity: 1,
-      },"two").to(".toggle-bar", {
-        opacity: 1,
-         onComplete: resolve,
-      },"two")
+      this.timeline
+        .to(".intro-text .animatedis", {
+          yPercent: 0,
+          stagger: 0.05,
+          ease: "back.out(1.7)",
+        })
+        .to(
+          ".arrow-svg-wrapper",
+          {
+            opacity: 1,
+          },
+          "two"
+        )
+        .to(
+          ".toggle-bar",
+          {
+            opacity: 1,
+            onComplete: resolve,
+          },
+          "two"
+        );
     });
   }
 
@@ -94,14 +106,22 @@ export default class Preloader extends EventEmitter {
       this.secondTimeline = new GSAP.timeline();
 
       this.secondTimeline
-        .to(".intro-text .animatedis", {
-          yPercent: 100,
-          stagger: 0.05,
-          ease: "back.in(1.7)",
-        },"out")
-        .to(".arrow-svg-wrapper", {
-          opacity: 0,
-        },"out")
+        .to(
+          ".intro-text .animatedis",
+          {
+            yPercent: 100,
+            stagger: 0.05,
+            ease: "back.in(1.7)",
+          },
+          "out"
+        )
+        .to(
+          ".arrow-svg-wrapper",
+          {
+            opacity: 0,
+          },
+          "out"
+        )
         .to(
           this.room.position,
           {
@@ -157,7 +177,7 @@ export default class Preloader extends EventEmitter {
         .to(
           ".hero-main-title .animatedis",
           {
-            yPercent: -100,
+            yPercent: 0,
             stagger: 0.007,
             ease: "back.out(1.7)",
           },
@@ -166,7 +186,7 @@ export default class Preloader extends EventEmitter {
         .to(
           ".hero-main-description .animatedis",
           {
-            yPercent: -100,
+            yPercent: 0,
             stagger: 0.007,
             ease: "back.out(1.7)",
           },
@@ -175,7 +195,7 @@ export default class Preloader extends EventEmitter {
         .to(
           ".first-sub .animatedis",
           {
-            yPercent: -100,
+            yPercent: 0,
             stagger: 0.009,
             ease: "back.out(1.7)",
           },
@@ -184,7 +204,7 @@ export default class Preloader extends EventEmitter {
         .to(
           ".second-sub .animatedis",
           {
-            yPercent: -100,
+            yPercent: 0,
             stagger: 0.009,
             ease: "back.out(1.7)",
           },
@@ -204,34 +224,50 @@ export default class Preloader extends EventEmitter {
           ease: "back-out(2.2)",
           duration: 0.5,
         })
-        .to(this.roomChildren.monitor1screen.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "back-out(2.2)",
-          duration: 0.3,
-        },">-0.5")
-        .to(this.roomChildren.floor_items.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "back-out(2.2)",
-          duration: 0.3,
-        },">-0.4")
-        .to(this.roomChildren.tv.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "back-out(2.2)",
-          duration: 0.3,
-        },">-0.1")
-        .to(this.roomChildren.screen.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "back-out(2.2)",
-          duration: 0.1,
-        },">-0.1")
+        .to(
+          this.roomChildren.monitor1screen.scale,
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back-out(2.2)",
+            duration: 0.3,
+          },
+          ">-0.5"
+        )
+        .to(
+          this.roomChildren.floor_items.scale,
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back-out(2.2)",
+            duration: 0.3,
+          },
+          ">-0.4"
+        )
+        .to(
+          this.roomChildren.tv.scale,
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back-out(2.2)",
+            duration: 0.3,
+          },
+          ">-0.1"
+        )
+        .to(
+          this.roomChildren.screen.scale,
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back-out(2.2)",
+            duration: 0.1,
+          },
+          ">-0.1"
+        )
         .set(this.roomChildren.minifloor.scale, {
           x: 1,
           y: 1,

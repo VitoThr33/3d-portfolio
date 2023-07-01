@@ -20,12 +20,20 @@ export default class Controls {
 
     this.setSmoothScroll();
     this.setScrollTrigger();
+
+    if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+  )
+) {
+  this.setSmoothScroll();
+}
+
     }
 
     setupASScroll() {
       // https://github.com/ashthornton/asscroll
       const asscroll = new ASScroll({
-        ease: 0.3,
+        ease: 0.1,
         disableRaf: true });
     
     
@@ -82,11 +90,16 @@ export default class Controls {
             invalidateOnRefresh: true,
           },
         });
-        this.firstMoveTimeline.to(this.room.position, {
-          x: () => {
-            return this.sizes.width * 0.0013;
-          },
-        });
+        this.firstMoveTimeline.fromTo(
+          this.room.position,
+          { x: 0, y: 0, z: 0 },
+          {
+              x: () => {
+                  return this.sizes.width * 0.0014;
+              },
+          }
+      );
+
 
         //Second SECTION  -------------------------------------------------------------------------->
         this.secondMoveTimeline = new GSAP.timeline({
