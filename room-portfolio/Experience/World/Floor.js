@@ -63,10 +63,3 @@ export default class Floor {
 
     update() {}
 }
-
-
-
-
-/*color: 0xb92f0c});
-        const material2 = new THREE.MeshBasicMaterial({ color: 0x0c422c});
-        const material3 = new THREE.MeshBasicMaterial({ color: 0x102769});*/
