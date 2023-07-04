@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
   margin: 0;
@@ -6,20 +6,21 @@
   box-sizing: border-box;
 }
 
-html,body{
-  font-family: "Teko",sans-serif;
-  color: var(--text-black);
-  
+html, body{
+  font-family: "Montserrat", sans-serif;
 }
+
+/* body{
+  overflow: hidden;
+} */
 
 h1,
 section,
 p,
 span,
 svg{
-  transition: background-color 0.7s, color 0.7s;
+  transition: background-color 0.5s, color 0.5s;
 }
-
 
 :root{
   /* Light Theme Variables */
@@ -50,7 +51,7 @@ svg{
   --color-blue: var(--color-text-dark);
 }
 
-/*EXPERIENCE=======================================================================*/
+/* Experience --------------------------------------------- */
 
 .experience{
   position: fixed;
@@ -66,7 +67,8 @@ svg{
 .hidden{
   display: none;
 }
-/* Preloader Circles=========================================================*/
+
+/* Preloader */
 .preloader{
   background-color: var(--color-background-light);
   width: 100%;
@@ -88,7 +90,6 @@ svg{
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .circle{
@@ -98,7 +99,6 @@ svg{
   margin: 6px;
   background-color: var(--color-pink-light);
   animation: load 1s ease-in-out infinite;
-  
 }
 
 .circle:nth-child(2){
@@ -123,11 +123,12 @@ svg{
   }
   
 }
-/*PAGE=============================================================================*/
+
+/* Page Itself --------------------------------------------- */
 .page{
   z-index:99999;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -135,33 +136,33 @@ svg{
   position: relative;
 }
 
-/*Preloader=============================================================================*/
+/* Preloader Stuff */
 .animatedis{
   display: inline-block;
   transform: translateY(100%);
 }
 
 .intro-text{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: 500;
-  font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 51%;
+  font-weight: 500;
+  font-size: 16px;
   color: var(--color-text);
+  transform: translate(-50%, -50%);
 }
 
 .arrow-svg-wrapper{
   position: absolute;
   top: 90%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  animation: bounce 0.5s ease-in alternate infinite;
   opacity: 0;
   color: var(--color-text);
+  transform: translate(-50%, -50%);
+  animation: bounce 0.5s ease-in alternate infinite;
 }
 
 @keyframes bounce {
@@ -174,17 +175,17 @@ svg{
   }
 }
 
-/*Toggle Bar=============================================================================*/
+/* Toggle Bar --------------------------------------------- */
 .toggle-bar{
   position: fixed;
   display: flex;
+  opacity: 0;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   top: 48px;
   right: 48px;
-  z-index: 999999999999;
-  opacity: 0;
+  z-index: 99999999999999;
 }
 
 .sun-wrapper, 
@@ -193,13 +194,14 @@ svg{
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  color: var(--color-text);
 }
 
 .toggle-button{
   cursor: pointer;
   position: relative;
-  width: 60px;
-  height: 30px;
+  width: 56px;
+  height: 28px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,7 +209,7 @@ svg{
   border-radius: 999px;
   margin: 0px 16px;
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .toggle-circle{
@@ -225,17 +227,18 @@ svg{
 }
 
 .slide{
-  left: 35px;
+  left: 31px;
 }
-/*SECTION FORMATTING=============================================================================*/
+
+/* Section Formatting --------------------------------------------- */
 .section-margin{
-  height: 1000px;
+  height: 3000px;
   width: 100%;
-  overflow: hidden;
 }
 
 .section{
-  width:43%;
+  position: relative;
+  width: 50%;
   padding: 1000px 4%;
   margin: 0;
   background-color: var(--color-background);
@@ -244,17 +247,17 @@ svg{
 
 .left{
   margin-right: auto;
-  border-top-right-radius: 800px 800px;
-  border-bottom-right-radius: 300px 300px;
+  border-top-right-radius: 700px 700px;
+  border-bottom-right-radius: 0px 0px;
 }
 
 .right{
-  margin-left:auto;
-  border-top-left-radius: 800px 800px;
-  border-bottom-left-radius: 300px 300px;
+  margin-left: auto;
+  border-top-left-radius: 700px 700px;
+  border-bottom-left-radius: 0px 0px;
 }
 
-/* Progress bars===================================================================== 
+/* Progress bars */
 .progress-wrapper{
   height: 0;
   width: 12px;
@@ -279,14 +282,19 @@ svg{
   background-color: var(--color-pink);
   transform-origin: top center;
   transform: scaleY(1);
-}*/
+}
 
-/*SECTIONS====================================================================*/
+/* Sections -------------- */
+
 .section-intro-wrapper{
   position: relative;
   padding: 20% 5%;
   border-bottom: 2px solid var(--color-pink);
   padding-bottom: 400px;
+}
+
+.section-intro-wrapper:nth-child(3){
+  border-bottom: 2px solid var(--color-green);
 }
 
 .section-detail-wrapper{
@@ -295,7 +303,7 @@ svg{
 }
 
 .section-heading{
-  font-size: 26px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.8;
   margin-top: 64px;
@@ -305,10 +313,11 @@ svg{
 .section-text{
   line-height: 2;
   margin-top: 18px;
-  font-size: 20px;
+  font-size: 16px;
   color: var(--color-text);
 }
-/*Decoration part of section=======================================================*/
+
+/* Fancy Decoration Part of Section */
 .section-title{
   position: relative;
   color: var(--color-pink)
@@ -316,11 +325,11 @@ svg{
 
 .section-title-text{
   display: block;
-  font-size: 80px;
+  font-size: 40px;
   font-weight: 500;
   transform-origin: left;
-  transform:skewY(25deg);
-  z-index:5;
+  transform: skewY(25deg);
+  z-index: 5;
   text-transform: uppercase;
   color: var(--color-pink);
 }
@@ -329,13 +338,13 @@ svg{
 .styleTwo,
 .styleThree{
   position: absolute;
-  display:block;
-  width:100%;
+  display: block;
+  width: 100%;
   max-width: 278px;
   height: 60px;
   border: 1px solid var(--color-pink);
-  transform:skewY(-25deg);
   transform-origin: left;
+  transform: skewY(-25deg);
 }
 
 .styleOne{
@@ -349,8 +358,7 @@ svg{
 .styleThree{
   top: 80px;
   transform: skewY(25deg);
-  background-color: var(--color-pink) ;
-  font-size: 20px;
+  background-color: var(--color-pink);
 }
 
 .section-number{
@@ -358,8 +366,12 @@ svg{
   bottom: 15px;
   right: 0;
   color: var(--color-pink);
+  font-size: 24px;
 }
-/*Hero=============================================================================*/
+
+
+/* Hero section -------------------------------- */
+
 .hero{
   width: 100vw;
   height: 100vh;
@@ -368,17 +380,16 @@ svg{
 .hero-wrapper{
   position: relative;
   height: 100%;
-  width: calc(100% - 160px);
+  width: 100%;
   margin: 0 auto;
   max-width: 1100px;
 }
 
 .hero-main{
   position: absolute;
-  bottom: 145px;
+  bottom: 168px;
   left: 0;
   color: var(--color-text);
- 
 }
 
 .hero-second{
@@ -394,17 +405,18 @@ svg{
 }
 
 .hero-main-description{
-  font-size: 20px;
+  font-size: 18px;
   color: var(--color-text);
 }
 
 .hero-second-subheading{
-  font-size: 34px;
+  font-size: 32px;
   text-transform: uppercase;
   color: var(--color-text);
 }
 
-/*COLOR OVERRIDES=======================================================================*/
+
+/* Other colors override */
 
 .blue-text{
   color: var(--color-blue)
@@ -430,10 +442,12 @@ svg{
   background-color: var(--color-green);
 }
 
-/*MEDIA QUERIES======================================================*/
-@media(max-width:968px){
+
+/* Media Queries */
+
+@media (max-width: 968px){
   .section{
-    width:100%;
+    width: 100%;
   }
   .progress-bar-wrapper-left{
     right: 0;
@@ -458,3 +472,4 @@ svg{
     font-size: 18px;
   }
 }
+
